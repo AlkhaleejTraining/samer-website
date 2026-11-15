@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سامر | مدرب مبيعات</title>
+<meta name="description" content="سامر، مدرب مبيعات محترف. دورات عملية في البيع الاحترافي والإقناع وإغلاق الصفقات وإدارة فرق المبيعات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --text: #14213d;
+    --muted: #5b6478;
+    --border: #e3e6ef;
+    --primary: #14213d;
+    --accent: #e0a526;
+    --accent-ink: #1a1405;
+    --wa: #25d366;
+    --shadow: 0 10px 30px rgba(20, 33, 61, .08);
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1424;
+      --surface: #151f35;
+      --text: #eef1f8;
+      --muted: #a3acc2;
+      --border: #26324d;
+      --primary: #eef1f8;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Tajawal", system-ui, "Segoe UI", Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  .container { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: 16px; }
+  section { padding-block: clamp(56px, 9vw, 96px); scroll-margin-top: 72px; }
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
+  .eyebrow { display: inline-block; color: var(--accent); font-weight: 700; font-size: .95rem; margin-bottom: 6px; }
+  h1, h2, h3 { line-height: 1.35; margin: 0; }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; }
+  .section-head p { color: var(--muted); margin: 10px 0 0; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 24px; border-radius: 999px; border: 2px solid transparent;
+    font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+    transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-accent { background: var(--accent); color: var(--accent-ink); box-shadow: 0 8px 20px rgba(224, 165, 38, .35); }
+  .btn-outline { border-color: var(--border); background: var(--surface); color: var(--text); }
+  .btn-wa { background: var(--wa); color: #06331a; }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .logo { font-weight: 800; font-size: 1.4rem; text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; }
+  .nav-links a:hover { color: var(--text); }
+  .nav .btn { padding: 8px 18px; }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(600px 300px at 85% 10%, rgba(224, 165, 38, .18), transparent 70%),
+      radial-gradient(500px 300px at 10% 90%, rgba(37, 99, 235, .12), transparent 70%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 48px; }
+  .hero h1 { font-size: clamp(2rem, 5.5vw, 3.3rem); font-weight: 800; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 1.12rem; margin: 18px 0 28px; max-width: 540px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 36px; }
+  .stat strong { display: block; font-size: 1.8rem; font-weight: 800; }
+  .stat span { color: var(--muted); font-size: .95rem; }
+  .photo-wrap { position: relative; justify-self: center; width: min(340px, 80vw); aspect-ratio: 1; }
+  .photo-wrap::before {
+    content: ""; position: absolute; inset: -14px; border-radius: 50%;
+    background: conic-gradient(from 140deg, var(--accent), transparent 40%, var(--accent));
+    opacity: .5;
+  }
+  .photo-wrap img {
+    position: relative; width: 100%; height: 100%; object-fit: cover;
+    border-radius: 50%; border: 6px solid var(--surface); box-shadow: var(--shadow);
+  }
+  .badge {
+    position: absolute; inset-block-end: 6%; inset-inline-start: -6%;
+    background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+    padding: 8px 14px; border-radius: 14px; font-weight: 700; font-size: .9rem;
+  }
+
+  /* Cards */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 28px; box-shadow: var(--shadow); display: flex; flex-direction: column;
+    transition: transform .25s, border-color .25s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .course.featured { border: 2px solid var(--accent); position: relative; }
+  .tag {
+    position: absolute; top: -14px; inset-inline-start: 24px;
+    background: var(--accent); color: var(--accent-ink);
+    font-size: .8rem; font-weight: 800; padding: 3px 14px; border-radius: 999px;
+  }
+  .course-icon {
+    width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+    background: rgba(224, 165, 38, .15); font-size: 1.6rem; margin-bottom: 16px;
+  }
+  .course h3 { font-size: 1.3rem; }
+  .course .meta { color: var(--accent); font-weight: 700; font-size: .9rem; margin-top: 4px; }
+  .course p { color: var(--muted); margin: 12px 0; }
+  .course ul { list-style: none; padding: 0; margin: 0 0 20px; flex: 1; }
+  .course li { padding-inline-start: 26px; position: relative; margin-bottom: 6px; }
+  .course li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: var(--wa); font-weight: 800; }
+  .price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 18px; border-top: 1px dashed var(--border); padding-top: 16px; }
+  .price strong { font-size: 2rem; font-weight: 800; }
+  .price span { color: var(--muted); }
+  .course .btn { width: 100%; }
+
+  /* Testimonials */
+  .testimonials { background: var(--surface); border-block: 1px solid var(--border); }
+  .testimonials .card { background: var(--bg); box-shadow: none; }
+  .stars { color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
+  .quote { margin: 12px 0 22px; flex: 1; }
+  .person { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+    font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .person strong { display: block; line-height: 1.3; }
+  .person span { color: var(--muted); font-size: .9rem; }
+
+  /* Contact */
+  .contact-box {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 24px;
+    padding: clamp(24px, 5vw, 48px); box-shadow: var(--shadow);
+  }
+  .contact-box p { color: var(--muted); }
+  form { display: grid; gap: 16px; }
+  label { font-weight: 700; display: block; margin-bottom: 6px; }
+  input, textarea {
+    width: 100%; font: inherit; color: var(--text); background: var(--bg);
+    border: 1.5px solid var(--border); border-radius: 12px; padding: 12px 14px;
+    transition: border-color .2s;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { min-height: 130px; resize: vertical; }
+  .error { color: #d64545; font-size: .9rem; min-height: 1.2em; margin: 0; }
+  form .btn { width: 100%; padding-block: 14px; font-size: 1.05rem; }
+
+  footer { padding-block: 28px; text-align: center; color: var(--muted); font-size: .95rem; }
+
+  .wa-float {
+    position: fixed; inset-block-end: 20px; inset-inline-end: 20px; z-index: 60;
+    width: 58px; height: 58px; border-radius: 50%; background: var(--wa);
+    display: grid; place-items: center; box-shadow: 0 8px 24px rgba(37, 211, 102, .45);
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .card, .wa-float { transition: none; }
+  }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .grid-3 { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+    .contact-box { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .hero-grid .photo-wrap { order: -1; width: min(240px, 66vw); }
+    .hero p { margin-inline: auto; }
+    .hero-actions, .stats { justify-content: center; }
+    .badge { inset-inline-start: -10%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container nav" aria-label="التنقل الرئيسي">
+    <a href="#top" class="logo">سامر<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">من أنا</a></li>
+      <li><a href="#courses">الدورات</a></li>
+      <li><a href="#testimonials">آراء المتدربين</a></li>
+      <li><a href="#contact">تواصل</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-accent">احجز الآن</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- التعريف -->
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">مدرب مبيعات معتمد</span>
+        <h1>أنا سامر، أساعدك على <span>مضاعفة مبيعاتك</span> بثقة</h1>
+        <p>أكثر من 12 عامًا في المبيعات وقيادة الفرق في قطاعات التجزئة والعقار والتقنية. أقدّم تدريبًا عمليًا يركّز على مهارات تُطبّق من اليوم الأول: فهم العميل، الإقناع، معالجة الاعتراضات، وإغلاق الصفقة.</p>
+        <div class="hero-actions">
+          <a href="#courses" class="btn btn-accent">تصفّح الدورات</a>
+          <a href="#contact" class="btn btn-outline">تواصل معي</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>+12</strong><span>سنة خبرة</span></div>
+          <div class="stat"><strong>+3,000</strong><span>متدرب</span></div>
+          <div class="stat"><strong>+80</strong><span>شركة</span></div>
+        </div>
+      </div>
+      <div class="photo-wrap reveal">
+        <!-- لاستبدال الصورة: ضع ملف samer.jpg بجانب index.html واجعل src="samer.jpg" -->
+        <img alt="صورة المدرب سامر" width="340" height="340"
+          src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2314213d'/%3E%3Cstop offset='1' stop-color='%23324a7a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23g)'/%3E%3Ccircle cx='100' cy='78' r='36' fill='%23e0a526'/%3E%3Cpath d='M30 200c4-48 34-74 70-74s66 26 70 74z' fill='%23e0a526'/%3E%3C/svg%3E">
+        <div class="badge">⭐ 4.9 تقييم المتدربين</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الدورات -->
+  <section id="courses">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">الدورات التدريبية</span>
+        <h2>اختر الدورة المناسبة لمستواك</h2>
+        <p>دورات حضورية وعن بُعد، بمحتوى عملي وتمارين واقعية وشهادة إتمام.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card course reveal">
+          <div class="course-icon" aria-hidden="true">🎯</div>
+          <h3>أساسيات البيع الاحترافي</h3>
+          <div class="meta">يومان · 10 ساعات</div>
+          <p>للمبتدئين ومن يريد بناء أساس متين في مهارات البيع.</p>
+          <ul>
+            <li>مراحل عملية البيع</li>
+            <li>فهم احتياجات العميل وطرح الأسئلة</li>
+            <li>عرض المنتج بلغة الفوائد</li>
+          </ul>
+          <div class="price"><strong>750</strong><span>ريال</span></div>
+          <a href="#contact" class="btn btn-outline" data-course="أساسيات البيع الاحترافي">سجّل الآن</a>
+        </article>
+
+        <article class="card course featured reveal">
+          <span class="tag">الأكثر طلبًا</span>
+          <div class="course-icon" aria-hidden="true">🤝</div>
+          <h3>فن الإقناع وإغلاق الصفقات</h3>
+          <div class="meta">3 أيام · 15 ساعة</div>
+          <p>لمندوبي المبيعات الذين يريدون رفع نسبة الإغلاق.</p>
+          <ul>
+            <li>أساليب الإقناع المبنية على علم النفس</li>
+            <li>معالجة الاعتراضات بثقة</li>
+            <li>تقنيات الإغلاق والتفاوض على السعر</li>
+          </ul>
+          <div class="price"><strong>1,200</strong><span>ريال</span></div>
+          <a href="#contact" class="btn btn-accent" data-course="فن الإقناع وإغلاق الصفقات">سجّل الآن</a>
+        </article>
+
+        <article class="card course reveal">
+          <div class="course-icon" aria-hidden="true">📈</div>
+          <h3>إدارة وقيادة فرق المبيعات</h3>
+          <div class="meta">4 أيام · 20 ساعة</div>
+          <p>لمشرفي ومديري المبيعات المسؤولين عن تحقيق المستهدفات.</p>
+          <ul>
+            <li>وضع المستهدفات ومتابعة الأداء</li>
+            <li>تحفيز الفريق والتدريب الميداني</li>
+            <li>تحليل خط المبيعات والتنبؤ</li>
+          </ul>
+          <div class="price"><strong>1,900</strong><span>ريال</span></div>
+          <a href="#contact" class="btn btn-outline" data-course="إدارة وقيادة فرق المبيعات">سجّل الآن</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- آراء المتدربين -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">آراء المتدربين</span>
+        <h2>ماذا قالوا بعد التدريب؟</h2>
+      </div>
+      <div class="grid-3">
+        <figure class="card reveal" style="margin:0">
+          <div class="stars" aria-label="5 من 5">★★★★★</div>
+          <blockquote class="quote" style="margin-inline:0">ارتفعت مبيعاتي الشهرية بنسبة واضحة خلال شهرين فقط. أسلوب سامر عملي ومباشر، وكل تمرين له علاقة بشغلنا اليومي.</blockquote>
+          <figcaption class="person">
+            <div class="avatar" style="background:#2563eb" aria-hidden="true">خ</div>
+            <div><strong>خالد العتيبي</strong><span>مندوب مبيعات – قطاع العقار</span></div>
+          </figcaption>
+        </figure>
+        <figure class="card reveal" style="margin:0">
+          <div class="stars" aria-label="5 من 5">★★★★★</div>
+          <blockquote class="quote" style="margin-inline:0">أكثر ما أفادني هو معالجة الاعتراضات. صرت أتعامل مع "السعر غالي" بثقة بدل ما أقدّم خصم مباشرة.</blockquote>
+          <figcaption class="person">
+            <div class="avatar" style="background:#db2777" aria-hidden="true">ن</div>
+            <div><strong>نورة القحطاني</strong><span>مستشارة مبيعات – قطاع التقنية</span></div>
+          </figcaption>
+        </figure>
+        <figure class="card reveal" style="margin:0">
+          <div class="stars" aria-label="5 من 5">★★★★★</div>
+          <blockquote class="quote" style="margin-inline:0">دربنا سامر فريقًا كاملًا من 15 شخصًا، والنتيجة كانت فريق أكثر تنظيمًا والتزامًا بالمستهدف. أنصح به لأي مدير مبيعات.</blockquote>
+          <figcaption class="person">
+            <div class="avatar" style="background:#059669" aria-hidden="true">ف</div>
+            <div><strong>فهد الشمري</strong><span>مدير مبيعات – قطاع التجزئة</span></div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- التواصل -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div>
+          <span class="eyebrow">تواصل معي</span>
+          <h2>جاهز تبدأ؟</h2>
+          <p>اكتب اسمك ورسالتك، وستُفتح محادثة واتساب برسالتك جاهزة للإرسال. أرد عادةً خلال ساعات العمل.</p>
+          <a class="btn btn-wa" href="https://wa.me/966500000000" target="_blank" rel="noopener">واتساب مباشر</a>
+        </div>
+        <form id="contact-form" novalidate>
+          <div>
+            <label for="name">الاسم</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="اكتب اسمك" required>
+          </div>
+          <div>
+            <label for="message">الرسالة</label>
+            <textarea id="message" name="message" placeholder="كيف أقدر أساعدك؟" required></textarea>
+          </div>
+          <p class="error" id="form-error" role="alert"></p>
+          <button type="submit" class="btn btn-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+            أرسل عبر واتساب
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> سامر – مدرب مبيعات. جميع الحقوق محفوظة.</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/966500000000" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+  // رقم واتساب بالصيغة الدولية بدون + أو أصفار بادئة
+  const WHATSAPP_NUMBER = "966500000000";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const form = document.getElementById("contact-form");
+  const nameInput = document.getElementById("name");
+  const messageInput = document.getElementById("message");
+  const errorEl = document.getElementById("form-error");
+
+  // أزرار "سجّل الآن" تملأ الرسالة باسم الدورة
+  document.querySelectorAll("[data-course]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      messageInput.value = `أرغب في التسجيل في دورة "${btn.dataset.course}"، وأريد معرفة المواعيد القادمة.`;
+      setTimeout(() => nameInput.focus({ preventScroll: true }), 400);
+    });
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      errorEl.textContent = !name ? "فضلًا اكتب اسمك." : "فضلًا اكتب رسالتك.";
+      (!name ? nameInput : messageInput).focus();
+      return;
+    }
+    errorEl.textContent = "";
+
+    const text = `مرحبًا سامر، أنا ${name}.\n${message}`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank", "noopener");
+  });
+
+  // حركة الظهور عند التمرير
+  const revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("visible"));
+  }
+</script>
+</body>
+</html>
